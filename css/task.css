@@ -1,0 +1,356 @@
+/* ====== ADD TASK ====== */
+
+.addtaskContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 200px;
+}
+
+.addtaskHeader {
+  margin-left: 42px;
+  margin-top: 32px;
+}
+
+.taskForm {
+  background-color: #766b8f4f;
+  box-shadow: -2px 0px 6px 0px rgb(0 0 0 / 20%);
+  margin-right: 50px;
+  margin-left: 50px;
+  margin-top: 50px;
+  border-radius: 15px;
+  outline: 2px solid rgb(255 255 255 / 38%);
+  outline-offset: -10px;
+}
+
+form {
+  margin-bottom: 36px;
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.taskForm h3 {
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.addtaskContainer h2 {
+  margin-bottom: 6px;
+}
+
+.addtaskContainer span {
+  color: #1e3190;
+}
+
+.taskForm-left {
+  margin-left: 40px;
+}
+
+.taskForm-right {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-right: 40px;
+  margin-left: 20px;
+}
+
+.taskForm-left textarea {
+  font-size: 18px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  resize: none;
+  outline: none;
+  border: solid 1px rgb(210, 210, 212);
+}
+
+.taskForm h3 {
+  padding-left: 10px;
+}
+
+.input-taskform, select {
+  font-size: 18px;
+  height: 40px;
+  width: 400px;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  box-shadow: -2px 0px 6px 0px rgb(0 0 0 / 20%);
+  padding-left: 10px;
+}
+
+.input-taskform {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.taskForm-description textarea {
+  height: 200px;
+  width: 400px;
+  border-radius: 15px;
+  box-shadow: -2px 0px 6px 0px rgb(0 0 0 / 20%);
+  padding-left: 10px;
+}
+
+.taskForm-account {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+  padding-left: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.add-user-box {
+  margin-top: 12px;
+  margin-left: 24px;
+}
+
+.add-user-box img {
+  padding: 4px;
+  border-radius: 100%;
+  border: 1px solid white;
+  height: 16px;
+  width: 16px;
+}
+
+.add-user-box img:hover {
+  background: white;
+  border: 1px solid #391e7af7;
+  cursor: pointer;
+}
+
+.taskAccount-box {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  min-width: 150px;
+  max-width: 200px;
+  margin-right: 10px;
+  margin-top: 12px;
+  padding: 6px;
+  border: 1px solid white;
+  border-radius: 10px;
+  background: #ffffff59;
+  max-height: 140px;
+  overflow-x: overlay;
+  overflow-y: overlay;
+}
+
+.taskAccount-box:hover {
+  cursor: pointer;
+  opacity: 0.7;
+  border: 1px solid black;
+}
+
+.taskAccount-box span {
+  color: black;
+}
+
+.taskAccount-box span:first-child {
+  font-size: 22px;
+}
+
+
+.taskForm-buttons {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.taskForm-buttons button {
+  background-color: white;
+  color: black;
+  min-width: 150px;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid black;
+  font-size: 18px;
+  margin: 0 12px;
+}
+
+.taskForm-buttons button:last-child:hover {
+  background-color: #391e7af7;
+  color: white;
+}
+
+.taskForm-buttons button:first-child:hover {
+  color: white;
+}
+
+.opacity:hover {
+  opacity: 0.7;
+  border: 1px solid #391e7af7;
+  cursor: pointer;
+}
+
+button:first-child:hover, .popUpBtn:hover {
+  border: 1px solid white;
+  background: rgb(145, 47, 47);
+  color: white;
+  cursor: pointer;
+}
+
+button:last-child:hover {
+  box-sizing: border-box;
+  border: 1px solid white;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.taskAccountImg img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 100%;
+  border: 1px solid white;
+}
+
+/* CATEGORY */
+.list-choice {
+  font-size: 18px;
+  width: 420px;
+  height: 40px;
+  position: relative;
+  cursor: pointer; 
+  border-radius: 15px; 
+}
+
+.list-choice input[type="radio"] {
+  position:absolute;
+  left:-9999px;
+}
+
+.list-choice-title {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  background: white;
+  text-align: center;
+  padding: 0.55em 1em;
+  box-sizing: border-box;
+  color: rgb(141, 137, 137);
+  text-shadow: 0 1px 0 #CACACA;
+  border-radius: 15px;
+  box-shadow: -2px 0px 6px 0px rgb(0 0 0 / 20%);
+}
+
+.list-choice:hover .list-choice-title {
+  border-radius: 15px 15px 0 0;
+}
+
+.list-choice-objects label:nth-last-of-type(1) span {
+  border-radius: 0 0 15px 15px;
+}
+
+.list-choice input[type="radio"] + span {
+  color: black;
+  background: white;
+  padding: 0.55em 1em;
+  display: flex;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  cursor: pointer;
+  width: 100%;
+}
+
+.list-choice-objects {
+  position: absolute;
+  top: 0;
+  padding-top: 2.1em;
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+  max-height: 43px;
+  transition: all 250ms ease;
+  border: 1px solid black;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+
+.list-choice:hover .list-choice-objects  input[type="radio"] + span {
+  position: relative;
+  top: 0;
+  transition: all 250ms ease-in-out;
+}
+
+.list-choice:hover input[type="radio"] + span:hover {
+  background:#766b8f;
+}
+
+.list-choice input[type="radio"]:checked + span {
+  position: absolute;
+  top: 0em;
+  border-radius: 15px;
+}
+
+.list-choice:hover input[type="radio"]:checked + span {
+  border-radius: 0;
+}
+
+.list-choice:hover .list-choice-objects label:nth-last-of-type(1) input[type="radio"]:checked + span{
+  border-radius:0 0 0.2em 0.2em;
+}
+
+.list-choice:hover .list-choice-objects {
+  max-height: fit-content;
+  display: block;
+}
+
+/* Modal Popup Box */
+
+#popUpBox {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(203 200 200 / 60%);
+  z-index: 9999;
+}
+
+.popUpWindow {
+  width: 500px;
+  overflow: hidden;
+  background: rgb(95, 30, 156);
+  box-shadow: 0 0 10px black;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  padding: 10px;
+  text-align: center;
+}
+
+#popUpBox span {
+  color: white;
+  font-size: 40px;
+  display: block;
+  margin: 20px 0;
+}
+
+#popUpBox h1 {
+  color: white;
+}
+
+.popUpMargin {
+  margin-right: 12px;
+}
+
+.popUpBtn {
+  font-size: 18px;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: rgb(174 174 191 / 82%);
+  display: inline-block;
+  border-radius: 10px;
+  border: 1px solid white;
+  text-decoration: none;
+  width: 180px;
+}

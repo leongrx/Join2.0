@@ -1,0 +1,62 @@
+<header>
+    <!-- Responsive Menu -->
+    <div class="hide">
+        <div id="resp-header" class="resp-menu-header">
+            <a class="a-standart cursor greyhover" href="../html/main.html"><img src="../img/joinlogo.png"></a>
+            <img src="../img/menu.png" class="hide menu-img" onclick="openResponsiveMenu()">
+        </div>
+        <div id="menu-links" class="resp-menu-links d-none">
+            <img onclick="closeResponsiveMenu()" class="resp-close-img" src="../img/close.png">
+            <div class="resp-links">
+                <br>
+                <a onclick="noTaskAvailableBoard()" class="a-standart cursor">Board</a>
+                <a onclick="noTaskAvailableBacklog()" class="a-standart cursor">Backlog</a>
+                <a class="a-standart cursor" href="../html/addtask.html">Add Task</a>
+                <a class="a-standart cursor" href="../html/help.html">Help</a>
+                <br> <br> <br>
+                <a class="a-standart cursor" href="../html/impressum.html">Impressum</a>
+                <a class="a-standart cursor" href="../html/datenschutz.html">Datenschutz</a> <br> <br>
+                <a class="a-standart cursor logout" href="../html/index.html"> LOG OUT</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <div id="menu" class="header-navbar">
+        <a class="a-standart cursor" href="../html/main.html">
+            <div class="nav-logo">
+                <img src="../img/joinlogo.png">
+            </div>
+        </a>
+
+        <div class="header-navbar-links">
+            <a onclick="noTaskAvailableBoard()" class="a-standart cursor">
+                <img src="../img/calendar.png">
+                <span>Board</span>
+            </a>
+
+            <a onclick="noTaskAvailableBacklog()" class="a-standart cursor">
+                <img src="../img/backlog.png">
+                <span>Backlog</span>
+            </a>
+
+            <a class="a-standart cursor" href="../html/addtask.html">
+                <img src="../img/task.png">
+                <span>Add Task</span>
+            </a>
+
+            <a class="a-standart cursor" href="../html/help.html">
+                <img src="../img/info.png">
+                <span>Help</span>
+            </a>
+        </div>
+
+        <div class="header-footer-links">
+            <a class="a-standart cursor footer-links" href="../html/impressum.html">Impressum</a>
+            <a class="a-standart cursor footer-links" href="../html/datenschutz.html">Datenschutz</a>
+            <br>
+            <a class="a-standart cursor footer-links logout" href="../html/index.html"> <img src="../img/logout.png">
+                LOG OUT</a>
+        </div>
+    </div>
+</header>

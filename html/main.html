@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join</title>
+    <!-- Libraries JavaScript -->
+    <script src="../smallest_backend_ever/mini_backend.js"></script>
+    <script src="../template/guest-tasksTemplate.js"></script>
+    <script src="../js/include.js"></script>
+    <script src="../js/login.js"></script>
+    <!-- Libraries Style -->
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/task.css">
+    <link rel="stylesheet" href="../css/navbar_impressum.css">
+    <link rel="stylesheet" href="../css/reponsive.css">
+    <link rel="shortcut icon" href="../img/joinlogo.png" type="image/x-icon">
+</head>
+
+<body class="animate-in" onload="loadNavBar()">
+    <div w3-include-html="../html/navbar.html"></div>
+
+    <div class="joinMain" id="joinMain">
+        <div class="join-name font-color">
+            <h1>JOIN - Your Project Management Tool</h1>
+            <div class="joinSlog">
+                <h2>Here you can save all your Projects in One Place</h2>
+                <h2>Enjoy your work!</h2>
+            </div>
+        </div>
+
+        <div class="joinSections ">
+            <div class="joinSection-top">
+                <a onclick="noTaskAvailableBoard()" class="a-standart cursor">
+                    <div class="joinSection-board join-bg-board joinSection-hover">
+                        <h3>Board</h3>
+                    </div>
+                </a>
+
+                <a onclick="noTaskAvailableBacklog()" class="a-standart cursor">
+                    <div class="joinSection-backlog join-bg-backlog joinSection-hover">
+                        <h3>Backlog</h3>
+                    </div>
+                </a>
+            </div>
+
+            <div class="joinSection-bottom">
+                <a class="a-standart cursor" href="../html/addtask.html">
+                    <div class="joinSection-addtask join-bg-addtask joinSection-hover">
+                        <h3>Add Task</h3>
+                    </div>
+                </a>
+
+                <a class="a-standart cursor" href="../html/help.html">
+                    <div class="joinSection-help join-bg-help joinSection-hover">
+                        <h3>Help</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

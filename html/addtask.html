@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join - Add Task</title>
+    <!-- Libraries JavaScript -->
+    <script src="../smallest_backend_ever/mini_backend.js"></script>
+    <script src="../js/task.js"></script>
+    <script src="../template/guest-tasksTemplate.js"></script>
+    <script src="../js/include.js"></script>
+    <!-- Libraries Style -->
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/task.css">
+    <link rel="stylesheet" href="../css/navbar_impressum.css">
+    <link rel="stylesheet" href="../css/reponsive.css">
+    <link rel="stylesheet" href="../css/leonstyle.css">
+    <link rel="shortcut icon" href="../img/joinlogo.png" type="image/x-icon">
+</head>
+
+<body class="animate-in" onload="init(), loadDate()">
+    <div class="popUpBox" id="popUpBox">
+        <div class="popUpWindow">
+            <i class="fas fa-check-circle"></i>
+            <h1>Task done!</h1>
+            <a class="popUpBtn popUpMargin" href="../html/backlog.html">Go to Backlog</a>
+            <a class="popUpBtn" onclick="showPopUpWindow()">Create a new Task</a>
+        </div>
+    </div>
+    
+    <div w3-include-html="../html/navbar.html"></div>
+
+    <div id="addtaskContainer" class="addtaskContainer">
+        <div class="addtaskHeader">
+            <h2 class="font-color">Add Task</h2>
+            <span>Learning Management System Project</span>
+        </div>
+
+        <div class="taskForm">
+            <form onsubmit=" event.preventDefault(), createTask()">
+                <!-- Title -->
+                <div class="taskForm-left">
+                    <div class="taskForm-title">
+                        <h3 class="font-color">TITLE</h3>
+                        <input class="input-taskform" required id="taskTitle" type="text" value=""
+                            placeholder="Enter a title..." minlength="3" autocomplete="off">
+                    </div>
+                    <!-- Category -->
+                    <div class="taskForm-category">
+                        <h3 class="font-color">CATEGORY</h3>
+                        <div class="list-choice">
+                            <div id="taskCategory" class="list-choice-title">Choose a category...</div>
+                            <div required class="list-choice-objects">
+                                <label>
+                                    <input class="taskCategory" value="Software Development" id="category-1"
+                                        onclick="chooseCategory(1, 'Software Development')" type="radio" />
+                                    <span>Software Development</span>
+                                </label>
+                                <label>
+                                    <input class="taskCategory input-taskform" value="Marketing" id="category-2"
+                                        onclick="chooseCategory(2, 'Marketing')" type="radio" />
+                                    <span>Marketing</span>
+                                </label>
+                                <label>
+                                    <input class="taskCategory input-taskform" value="Product" id="category-3"
+                                        onclick="chooseCategory(3, 'Product')" type="radio" />
+                                    <span>Product</span>
+                                </label>
+                                <label>
+                                    <input class="taskCategory input-taskform" value="Sale" id="category-4"
+                                        onclick="chooseCategory(4, 'Sale')" type="radio" />
+                                    <span>Sale</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Description -->
+                    <div class="taskForm-description">
+                        <h3 class="font-color">DESCRIPTION</h3>
+                        <textarea required id="taskDescription" placeholder="Enter a task..." minlength="3"></textarea>
+                    </div>
+                </div>
+                <!-- Duo Date -->
+                <div class="taskForm-right">
+                    <div class="taskForm-date">
+                        <h3 class="font-color">DUE DATE</h3>
+                        <input class="input-taskform" required id="taskDate" type="date">
+                    </div>
+                    <!-- Urgency -->
+                    <div class="taskForm-urgency">
+                        <h3 class="font-color">URGENCY</h3>
+                        <div class="list-choice">
+                            <div class="list-choice-title">Choose a urgency...</div>
+                            <div id="taskUrgency" class="list-choice-objects">
+                                <label>
+                                    <input class="taskUrgency input-taskform" value="High" id="urgency-1"
+                                        onclick="chooseUrgency(1, 'High')" type="radio" />
+                                    <span>High</span>
+                                </label>
+                                <label>
+                                    <input class="taskUrgency input-taskform" value="Medium" id="urgency-2"
+                                        onclick="chooseUrgency(2, 'Medium')" type="radio" />
+                                    <span> Medium</span>
+                                </label>
+                                <label>
+                                    <input class="taskUrgency input-taskform" value="Low" id="urgency-3"
+                                        onclick="chooseUrgency(3, 'Low')" type="radio" />
+                                    <span> Low</span>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Assigned to -->
+                    <div class="taskForm-assigned">
+                        <h3 class="font-color">ASSIGNED TO</h3>
+
+                        <div class="taskForm-account">
+                            <div class="taskAccount-box" id="worker-1"
+                                onclick="chooseAssignedAccount(1, 'Leon Groschek', 'leon.groschek12@gmail.com')">
+                                <div class="taskAccountImg cursor">
+                                    <img src="../img/Leon.jpg">
+                                </div>
+                                <div class="cursor">
+                                    <span>Leon Groschek</span>
+                                    <br>
+                                    <br>
+                                    <span>Software Developer</span>
+                                </div>
+                            </div>
+
+                            <div class="taskAccount-box" id="worker-2"
+                                onclick="chooseAssignedAccount(2, 'Anastasiia Ünal', 'anastasiia.Ünal@gmail.com')">
+                                <div class="taskAccountImg cursor">
+                                    <img src="../img/Anastasiia.jpg">
+                                </div>
+                                <div class="cursor">
+                                    <span>Anastasiia Ünal</span>
+                                    <br>
+                                    <br>
+                                    <span>Software Developer</span>
+                                </div>
+                            </div>
+
+                            <div class="taskAccount-box" id="worker-3"
+                                onclick="chooseAssignedAccount(3, 'Max Mustermann', 'max.mustermann@gmail.com')">
+                                <div class="taskAccountImg cursor">
+                                    <img src="../img/Max.jpg">
+                                </div>
+                                <div class="cursor">
+                                    <span>Max Mustermann</span>
+                                    <br>
+                                    <br>
+                                    <span>Administrator</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="new-worker-box"></div>
+                        <!-- Buttons -->
+                    </div>
+                    <div class="taskForm-buttons">
+                        <button class="btn-taskForm" type="reset" onclick="cleanTaskForm()">CANCEL</button>
+                        <button class="btn-taskForm" type="submit">CREATE TASK</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </body>
+
+</html>

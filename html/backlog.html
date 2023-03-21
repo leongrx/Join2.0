@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join - Backlog</title>
+    <!-- Libraries JavaScript -->
+    <script src="../smallest_backend_ever/mini_backend.js"></script>
+    <script src="../js/backlog.js"></script>
+    <script src="../template/backlogTemplate.js"></script>
+    <script src="../template/guest-tasksTemplate.js"></script>
+    <script src="../js/include.js"></script>
+    <script src="../js/login.js"></script>
+    <!-- Libraries Style -->
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <!-- <link rel="stylesheet" href="../css/task.css"> -->
+    <link rel="stylesheet" href="../css/navbar_impressum.css">
+    <link rel="stylesheet" href="../css/reponsive.css">
+    <link rel="stylesheet" href="../css/leonstyle.css">
+    <link rel="stylesheet" href="../css/task.css">
+    <link rel="shortcut icon" href="../img/joinlogo.png" type="image/x-icon">
+</head>
+
+<body class="animate-in" onload="init()">
+    <div w3-include-html="../html/navbar.html"></div>
+
+
+    <div id="backlog" class="backlog">
+        <div class="backlogHeadline">
+            <h2>Backlog</h2>
+            <span>Learning Management System Project</span>
+        </div>
+        <div class="backlogContainer">
+            <div id="backlogContainerHeadline" class="backlogContainerHeadline d-none">
+                <span>Assigned to</span>
+                <span>Category</span>
+                <span>Details</span>
+            </div>
+
+        </div>
+        <div id="backlog-noTask"><span>Momentan sind keine Tasks verfügbar.</span></div>
+        <div id="backlog-area"></div>
+        <div id="backlogOpenDetails"></div>
+    </div>
+</body>
+
+</html>
