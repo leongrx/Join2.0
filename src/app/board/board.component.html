@@ -1,0 +1,153 @@
+<main>
+  <header>
+    <div class="board-search-input">
+      <input type="text" placeholder="Find Task" />
+      <img src="./assets/img/Search.svg" />
+    </div>
+    <button mat-button>Add task <img src="./assets/img/Add-icon.svg" /></button>
+  </header>
+
+  <section cdkDropListGroup>
+    <div class="boards">
+      <div class="boards-header">
+        <span>To do</span>
+        <img src="./assets/img/Plus-icon.svg" />
+      </div>
+      <div
+        class="board-task-container"
+        cdkDropList
+        [cdkDropListData]="taskService.todo"
+        #todoList="cdkDropList"
+        (cdkDropListDropped)="drop($event)"
+        id="cdk-drop-list-0"
+      >
+        <div
+          class="board-task"
+          *ngFor="let task of taskService.todo; let i = index"
+          cdkDrag
+          [cdkDragData]="task"
+        >
+          <span class="board-task-title">{{ task.category }}</span>
+          <div class="board-task-text">
+            <span>{{ task.title }}</span>
+            <span>{{ task.description }}</span>
+          </div>
+          <div class="board-task-info">
+            <div class="board-task-acronym">
+              <span>SM</span>
+              <span>MV</span>
+              <span>EF</span>
+            </div>
+            <img [src]="task.urgency ? getUrgencySelected(task.urgency) : ''" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="boards">
+      <div class="boards-header">
+        <span>In progress</span>
+        <img src="./assets/img/Plus-icon.svg" />
+      </div>
+      <div
+        class="board-task-container"
+        cdkDropList
+        [cdkDropListData]="taskService.inprogress"
+        #inprogressList="cdkDropList"
+        (cdkDropListDropped)="drop($event)"
+        id="cdk-drop-list-1"
+      >
+        <div
+          class="board-task"
+          *ngFor="let task of taskService.inprogress; let i = index"
+          cdkDrag
+          [cdkDragData]="task"
+        >
+          <span class="board-task-title">{{ task.category }}</span>
+          <div class="board-task-text">
+            <span>{{ task.title }}</span>
+            <span>{{ task.description }}</span>
+          </div>
+          <div class="board-task-info">
+            <div class="board-task-acronym">
+              <span>SM</span>
+              <span>MV</span>
+              <span>EF</span>
+            </div>
+            <img [src]="task.urgency ? getUrgencySelected(task.urgency) : ''" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="boards">
+      <div class="boards-header">
+        <span>Await feedback</span>
+        <img src="./assets/img/Plus-icon.svg" />
+      </div>
+      <div
+        class="board-task-container"
+        cdkDropList
+        [cdkDropListData]="taskService.awaitfeedback"
+        (cdkDropListDropped)="drop($event)"
+        id="cdk-drop-list-2"
+      >
+        <div
+          class="board-task"
+          *ngFor="let task of taskService.awaitfeedback; let i = index"
+          cdkDrag
+          [cdkDragData]="task"
+        >
+          <span class="board-task-title">{{ task.category }}</span>
+          <div class="board-task-text">
+            <span>{{ task.title }}</span>
+            <span>{{ task.description }}</span>
+          </div>
+          <div class="board-task-info">
+            <div class="board-task-acronym">
+              <span>SM</span>
+              <span>MV</span>
+              <span>EF</span>
+            </div>
+            <img [src]="task.urgency ? getUrgencySelected(task.urgency) : ''" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="boards">
+      <div class="boards-header">
+        <span>Done</span>
+        <img src="./assets/img/Plus-icon.svg" />
+      </div>
+      <div
+        class="board-task-container"
+        cdkDropList
+        [cdkDropListData]="taskService.done"
+        (cdkDropListDropped)="drop($event)"
+        id="cdk-drop-list-3"
+      >
+        <div
+          class="board-task"
+          *ngFor="let task of taskService.done; let i = index"
+          cdkDrag
+          [cdkDragData]="task"
+        >
+          <span class="board-task-title">{{ task.category }}</span>
+          <div class="board-task-text">
+            <span>{{ task.title }}</span>
+            <span>{{ task.description }}</span>
+          </div>
+          <div class="board-task-info">
+            <div class="board-task-acronym">
+              <span>SM</span>
+              <span>MV</span>
+              <span>EF</span>
+            </div>
+            <img [src]="task.urgency ? getUrgencySelected(task.urgency) : ''" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

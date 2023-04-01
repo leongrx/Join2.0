@@ -1,0 +1,68 @@
+<div class="sign-up-page">
+  <header>
+    <img class="white-logo" src="./assets/img/Logo-white.svg" />
+  </header>
+  <mat-card class="sign-up-card">
+    <mat-card-header>
+      <mat-card-title>Sign up</mat-card-title>
+      <img mat-card-avatar src="./assets/img/Back-arrow.svg" routerLink="/login">
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="signUpForm" class="sign-up-form" (ngSubmit)="submit()">
+        <mat-form-field appearance="fill" class="example-full-width">
+          <input 
+          type="text"
+          required
+          matInput
+          placeholder="First name"
+          formControlName="firstName"
+          >
+          <mat-error *ngIf="'firstName' && 'firstName.invalid' && 'firstName.touched'">Name is required or invaild</mat-error>
+          <mat-icon aria-hidden="true" matSuffix><img src="./assets/img/Profile-icon.svg"/></mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="example-full-width">
+          <input 
+          type="text"
+          required
+          matInput
+          placeholder="Last name"
+          formControlName="lastName"
+          >
+          <mat-error *ngIf="'lastName' && 'lastName.invalid' && 'lastName.touched'">Name is required or invaild</mat-error>
+          <mat-icon aria-hidden="true" matSuffix><img src="./assets/img/Profile-icon.svg"/></mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="example-full-width">
+          <input
+            type="email"
+            matInput
+            formControlName="email"
+            placeholder="Email"
+            required
+            />
+            <mat-error *ngIf="'email' && 'email.invalid' && 'email.touched'">Email is required or invaild</mat-error>
+            <mat-icon aria-hidden="true" matSuffix><img src="./assets/img/Email.svg" /></mat-icon>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            placeholder="Password"
+            formControlName="password"
+            required
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+          <mat-error *ngIf="'password' && 'password.invalid' && 'password.touched'">Password is required or invaild</mat-error>
+        </mat-form-field>
+        <button class="access-button access-sign-up">Sign Up</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

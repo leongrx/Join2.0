@@ -1,0 +1,48 @@
+<mat-toolbar>
+    <img src="./assets/img/Logo-white.svg">
+    <div class="header-info">
+        <span>Kanban Project Management Tool</span>
+        <img routerLink="/help" src="./assets/img/Questionmark.svg">
+        <img src="./assets/img/leon.png" [matMenuTriggerFor]="logout">
+        <mat-menu #logout="matMenu">
+            <button mat-menu-item (click)="signOut()">Logout</button>
+        </mat-menu>
+    </div>
+</mat-toolbar>
+<mat-drawer-container class="example-container">
+    <mat-drawer class="sidenav" mode="side" opened>
+        <mat-list role="list">
+            <li (click)="select('summary')" id="summary" role="listitem" routerLink="/dashboard/summary">
+                <div>
+                    <img src="./assets/img/Summary.svg">
+                </div>
+                <span>Summary</span>
+            </li> 
+            <li (click)="select('board')" id="board" role="listitem" routerLink="/dashboard/board">
+                <div>
+                    <img src="./assets/img/Board.svg">
+                </div>
+                <span>Board</span>
+            </li>
+            <li (click)="select('add-task')" id="add-task" role="listitem" routerLink="/dashboard/add-task">
+                <div>
+                    <img src="./assets/img/Add-task.svg">
+                </div>
+                <span>Add Task</span>
+            </li>
+            <li (click)="select('contacts')" id="contacts" role="listitem" routerLink="/dashboard/contacts">
+                <div>
+                    <img src="./assets/img/Contacts.svg">
+                </div>
+                <span>Contacts</span>
+            </li>
+        </mat-list>
+        <div class="legal-notice">
+            <a href=""><img src="./assets/img/Info-icon.svg"></a>
+            <span>Legal notice</span>
+        </div>
+    </mat-drawer>
+    <mat-drawer-content class="main-content">
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>

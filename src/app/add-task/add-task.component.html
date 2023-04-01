@@ -1,0 +1,110 @@
+<main>
+  <form (submit)="onSubmit()" class="add-task-form">
+    <mat-form-field appearance="fill">
+      <input
+        class="add-task-input"
+        matInput
+        placeholder="Enter a title"
+        name="title"
+        [(ngModel)]="task.title"
+        required
+      />
+    </mat-form-field>
+    <span class="add-task-topic">Assign to</span>
+    <mat-form-field>
+      <mat-select
+        class="add-task-select"
+        placeholder="Select contacts to assign"
+        name="assignedTo"
+        [(ngModel)]="task.assignedTo"
+        required
+      >
+        <mat-option value="you">You</mat-option>
+        <mat-option value="Max Mustermann">Max Mustermann</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <span class="add-task-topic">Due date</span>
+    <mat-form-field>
+      <input
+        class="add-task-select"
+        matInput
+        [matDatepicker]="picker"
+        placeholder="dd/mm/yyyy"
+        name="date"
+        [(ngModel)]="task.date"
+        required
+      />
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <span class="add-task-topic">Category</span>
+    <mat-form-field appearance="fill">
+      <mat-select
+        class="add-task-select"
+        placeholder="Select task category"
+        name="category"
+        [(ngModel)]="task.category"
+        required
+      >
+        <mat-option value="design">Design</mat-option>
+        <mat-option value="sales">Sales</mat-option>
+        <mat-option value="backoffice">Backoffice</mat-option>
+        <mat-option value="marketing">Marketing</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-button-toggle-group
+      class="add-task-urgency"
+      name="urgency"
+      [(ngModel)]="task.urgency"
+      required
+    >
+      <mat-button-toggle
+        (click)="clicked('urgent')"
+        id="urgent"
+        (mouseover)="hover('urgent')"
+        (mouseleave)="hoverEnd('urgent')"
+        class="add-task-urgency-button"
+        value="urgent"
+        >Urgent<img id="urgentid" src="./assets/img/Urgent.svg"
+      /></mat-button-toggle>
+      <mat-button-toggle
+        (click)="clicked('medium')"
+        (mouseover)="hover('medium')"
+        (mouseleave)="hoverEnd('medium')"
+        id="medium"
+        class="add-task-urgency-button"
+        value="medium"
+        >Medium<img id="mediumid" src="./assets/img/Medium.svg"
+      /></mat-button-toggle>
+      <mat-button-toggle
+        (click)="clicked('low')"
+        (mouseover)="hover('low')"
+        (mouseleave)="hoverEnd('low')"
+        id="low"
+        class="add-task-urgency-button"
+        value="low"
+        >Low<img id="lowid" src="./assets/img/Low.svg"
+      /></mat-button-toggle>
+    </mat-button-toggle-group>
+    <span class="add-task-topic">Description</span>
+    <mat-form-field class="add-task-descriptions">
+      <textarea
+        matInput
+        placeholder="Description"
+        [(ngModel)]="task.description"
+        name="description"
+      ></textarea>
+    </mat-form-field>
+    <div class="add-task-action">
+      <button class="add-task-action-button">
+        Clear <img src="./assets/img/Clear.svg" />
+      </button>
+      <button class="add-task-action-button" type="submit">
+        Create Task <img src="./assets/img/Create.svg" />
+      </button>
+    </div>
+  </form>
+</main>

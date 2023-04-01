@@ -1,0 +1,59 @@
+<main>
+    <div class="summary-greet">
+        <span> {{ greet }} </span>
+        <span> {{ firstName }} {{ lastName }} </span>
+    </div>
+    <div class="summary-highlight">
+        <div class="summary-urgent hover">
+            <div class="summary-total-urgent" routerLink="/dashboard/board">
+                <div class="summary-clock-total">
+                    <img src="./assets/img/Task-urgent-clock.svg">
+                    <span>{{ taskService.taskurgent }}</span>
+                </div>
+                <span>Tasks Urgent</span>
+            </div>
+            <div class="summary-deadline-task">
+                <span>October 16, 2022</span>
+                <span>Upcoming Deadline</span>
+            </div>
+        </div>
+        <div class="summary-total-tasks-to-do" routerLink="/dashboard/board">
+            <div class="summary-to-do">
+                <img src="./assets/img/To-do.svg">
+                <span>{{ taskService.tasktodo }}</span>
+            </div>
+            <span>Tasks To-do</span>
+        </div>
+    </div>
+    <div class="summary-tasks">
+        <div class="summary-tasks-category bg-white" routerLink="/dashboard/board">
+            <div class="summary-task">
+                <img src="./assets/img/To-do.svg">
+                <span>{{ taskService.taskinboard}}</span>
+            </div>
+            <span>Task in Board</span>
+        </div>
+        <div class="summary-tasks-category bg-white" routerLink="/dashboard/board">
+            <div class="summary-task">
+                <img src="./assets/img/To-do.svg">
+                <span>{{ taskService.taskinprogress }}</span>
+            </div>
+            <span>Task in Progress</span>
+        </div>
+        <div class="summary-tasks-category bg-white" routerLink="/dashboard/board">
+            <div class="summary-task">
+                <img src="./assets/img/To-do.svg">
+                <span>{{ taskService.taskawaitfeedback}}</span>
+            </div>
+            <span>Awaiting Feedback</span>
+        </div>
+        <div class="summary-tasks-category bg-white" routerLink="/dashboard/board">
+            <div class="summary-task">
+                <img src="./assets/img/To-do.svg">
+                <span>{{ taskService.taskdone }}</span>
+            </div>
+            <span>Tasks Done</span>
+        </div>
+        
+    </div>
+</main>
