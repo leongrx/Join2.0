@@ -10,25 +10,10 @@ $grey: #A8A8A8;
   width: 4px;
 }
 
-
-/* Track 
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-*/
-
-
-/* Handle */
-
 ::-webkit-scrollbar-thumb {
   background: $blue;
   border-radius: 10px;
 }
-
-
-/* Handle on hover */
 
 ::-webkit-scrollbar-thumb:hover {
   background: $darkblue;
@@ -39,6 +24,7 @@ main {
   flex-direction: column;
   padding: 58px 70px;
   gap: 60px;
+  font-family: 'Open Sans' !important;
 }
 
 header {
@@ -202,6 +188,5 @@ section {
         box-sizing: border-box;
         margin: -7px;
       }
-
-      
 }
+

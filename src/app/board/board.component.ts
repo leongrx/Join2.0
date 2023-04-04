@@ -10,6 +10,8 @@ import { map } from 'rxjs';
 import { Subscription } from 'rxjs';
 import { Task } from '../../models/task';
 import { TasksService } from '../services/tasks.service'; 
+import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-board',
@@ -21,12 +23,20 @@ export class BoardComponent implements OnInit {
   constructor(
     private afirestore: AngularFirestore,
     private afAuth: AngularFireAuth,
+    public dialog: MatDialog,
     public taskService: TasksService
   ) {}
 
   ngOnInit() {
     this.taskService.getUserId();
     this.taskService.getAllTasks();
+  }
+
+  openTask(task: any) {
+    this.dialog.open(TaskDialogComponent, {
+      width: '100%',
+      data: { task }
+    });
   }
 
   getUrgencySelected(urgency: string): string {

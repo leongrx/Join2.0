@@ -18,67 +18,27 @@ import { Userlist } from '../../models/user-list';
   styleUrls: ['./contacts.component.scss'],
 })
 export class ContactsComponent {
-  userList: Userlist[] = [];
-  alphabetList: AlphabetItem[] = [];
   userId: string | undefined;
   startLetter: string = '';
-  colRef = collection(getFirestore(), 'users');
 
-  constructor(private afAuth: AngularFireAuth, private userservice: UsersService) {
-    this.getUserData();
+  constructor(private afAuth: AngularFireAuth, private userservice: UsersService, public userService: UsersService) {
+    this.userService.getUserData()
     this.afAuth.authState
     .subscribe((user) => this.userId = user?.uid);
-  }
-
-  async getUserData() {
-    try {
-      const docsSnap = await getDocs(this.colRef);
-      docsSnap.forEach((doc) => {
-        this.pushToUserlist(doc);
-        this.pushToAlphabet(doc);
-        this.sort();
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  pushToAlphabet(doc: QueryDocumentSnapshot<DocumentData>) {
-    return this.alphabetList.push({
-      start: doc.get('firstName').slice(0, 1),
-    });
-  }
-
-  pushToUserlist(doc: QueryDocumentSnapshot<DocumentData>) {
-    return this.userList.push({
-      firstName: doc.get('firstName'),
-      start: doc.get('firstName').slice(0, 1),
-      lastName: doc.get('lastName'),
-      end: doc.get('lastName').slice(0, 1),
-      email: doc.get('email'),
-    });
-  }
-
-  sort() {
-    this.userList.sort((a, b) => {
-      if (a.firstName < b.firstName) {
-        return -1;
-      } else if (a.firstName < b.firstName) {
-        return 1;
-      } else {
-        return 0;
-      }
-    });
   }
 
   setHeaders(user: { firstName: string; }) {
       let userLetter = user.firstName.charAt(0);
       if (userLetter !== this.startLetter) {
-        // Setze den neuen Anfangsbuchstaben als aktuellen Anfangsbuchstaben
         this.startLetter = userLetter;
         return true;
       }
       return false;
+    }
+
+    clickedUser(user: any) {
+      this.userService.clickeduser = user;
+      console.log(this.userService.clickeduser)
     }
 }
 

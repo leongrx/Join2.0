@@ -13,9 +13,9 @@ export class TasksService {
   public inprogress: Task[] = [];
   public awaitfeedback: Task[] = [];
   public done: Task[] = [];
-  [key: string]: any;
+  public date = [];
   tasks: Task[] = [];
-  public date: Array<Date> = [];
+  [key: string]: any;
   tasksSubscription: Subscription | undefined;
   userId: string | undefined;
   taskurgent: number = 0;
@@ -24,6 +24,7 @@ export class TasksService {
   taskinprogress: number = 0;
   taskawaitfeedback: number = 0;
   taskdone: number = 0;
+  deadline!: string;
 
   colors: any = {
     design: '#FF7A00',
@@ -49,7 +50,7 @@ export class TasksService {
 
   constructor(
     private afirestore: AngularFirestore,
-    private afAuth: AngularFireAuth,
+    private afAuth: AngularFireAuth
   ) {}
 
   ngOnInit() {}
@@ -72,7 +73,6 @@ export class TasksService {
             map((tasks: any) => tasks.map((task: any) => this.setNewTask(task)))
           )
           .subscribe((tasks: Task[]) => {
-            console.log(tasks);
             this.tasks = tasks;
             this.getBoard();
             this.setSummary(tasks);
@@ -82,15 +82,34 @@ export class TasksService {
     });
   }
 
-  getAllDates(tasks: Array<Task>) {
-    this.date = [];
-    tasks.forEach((task) => {
-      console.log(task);
-      if (task.date) {
-        this.date.push(task.date);
+  getAllDates(tasks: any) {
+    const today = new Date();
+    let minDiff = Infinity;
+    tasks.forEach((task: { date: string }) => {
+      const date: Date = new Date(task.date);
+      const diff = date.getTime() - today.getTime();
+      if (diff >= 0 && diff < minDiff) {
+        minDiff = diff;
+        let months: any = [
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+          'July',
+          'August',
+          'September',
+          'October',
+          'November',
+          'December',
+        ];
+        let month: number = date.getMonth();
+        month = months[month];
+        const day: number = date.getDate();
+        const year: number = date.getFullYear();
+        this.deadline = month + ' ' + day + ', ' + year;
       }
-    });
-    this.date.forEach((date) => {
     });
   }
 
@@ -100,7 +119,7 @@ export class TasksService {
     description: string | undefined;
     board: string | undefined;
     assignedTo: string | undefined;
-    date: Date | undefined;
+    date: string | undefined;
     category: string | undefined;
     urgency: string | undefined;
   }): Task {

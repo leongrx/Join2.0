@@ -1,0 +1,23 @@
+<main>
+    <div class="edit-contact-header">
+        <img src="./assets/img/leon.png">
+        <div class="edit-contact-top">
+            <span>{{ userService.clickeduser.firstName }} {{ userService.clickeduser.lastName }}</span>
+            <button><img src="./assets/img/Edit-contact-add-task.svg">Add Task</button>
+        </div>
+    </div>
+    <div class="edit-contact-information-container">
+        <div class="edit-contact-information">
+            <span>Contact Information</span>
+            <div class="edit-contact-email">
+                <span>Email</span>
+                <a href="mailto:{{userService.clickeduser.email}}">{{ userService.clickeduser.email}}</a>
+            </div>
+            <div class="edit-contact-mobile">
+                <span>Mobile</span>
+                <span>+49 1234 567 89</span>
+            </div>
+        </div>
+        <button><img src="./assets/img/Edit-contact.svg">Edit Contact</button>
+    </div>
+</main>

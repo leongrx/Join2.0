@@ -1,5 +1,5 @@
 <main>
-  <form (submit)="onSubmit()" class="add-task-form">
+  <form #myForm="ngForm" (submit)="onSubmit(myForm)" class="add-task-form">
     <mat-form-field appearance="fill">
       <input
         class="add-task-input"
@@ -11,16 +11,16 @@
       />
     </mat-form-field>
     <span class="add-task-topic">Assign to</span>
-    <mat-form-field>
+    <mat-form-field >
       <mat-select
         class="add-task-select"
         placeholder="Select contacts to assign"
         name="assignedTo"
         [(ngModel)]="task.assignedTo"
         required
+        multiple
       >
-        <mat-option value="you">You</mat-option>
-        <mat-option value="Max Mustermann">Max Mustermann</mat-option>
+        <mat-option *ngFor="let assignTo of userService.userList; let i = index"value="{{ assignTo.firstName }} {{ assignTo.lastName }}">{{ assignTo.firstName }} {{ assignTo.lastName }}</mat-option>
       </mat-select>
     </mat-form-field>
     <span class="add-task-topic">Due date</span>

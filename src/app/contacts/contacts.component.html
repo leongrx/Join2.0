@@ -1,11 +1,11 @@
 <main>
   <div class="contacts">
-    <div class="contacts-profile" *ngFor="let user of userList; let i = index">
+    <div class="contacts-profile" *ngFor="let user of userService.userList; let i = index">
       <div class="contacts-header" *ngIf="setHeaders(user)">
         <div class="contacts-alphabet">{{ user.start }}</div>
         <div class="contacts-divider"></div>
       </div>
-      <div class="contact-main">
+      <div class="contact-main" (click)="clickedUser(user)" [routerLink]="['/dashboard/contacts/editcontact/' + user.firstName]">
         <span class="contacts-logo">{{ user.start }}{{ user.end }}</span>
         <div class="contacts-info">
           <span> {{ user.firstName }} {{ user.lastName }}</span>
@@ -14,4 +14,9 @@
       </div>
     </div>
   </div>
+  <mat-drawer-container class="contacts-edit">
+    <router-outlet></router-outlet>
+  </mat-drawer-container>
 </main>
+
+

@@ -1,7 +1,7 @@
 export class Task {
   title?: string;
   assignedTo?: string;
-  date?: Date = new Date();
+  date?: string;
   category?: string;
   urgency?: string;
   description?: string;
@@ -14,7 +14,7 @@ export class Task {
     description?: string,
     board?: string,
     assignedTo?: string,
-    date?: Date,
+    date?: string,
     category?: string,
     urgency?: string
   ) {

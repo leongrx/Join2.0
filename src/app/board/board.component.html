@@ -26,6 +26,7 @@
           *ngFor="let task of taskService.todo; let i = index"
           cdkDrag
           [cdkDragData]="task"
+          (click)="openTask(task)"
         >
           <span class="board-task-title">{{ task.category }}</span>
           <div class="board-task-text">
@@ -34,9 +35,7 @@
           </div>
           <div class="board-task-info">
             <div class="board-task-acronym">
-              <span>SM</span>
-              <span>MV</span>
-              <span>EF</span>
+              <span *ngFor="let test of task.assignedTo">{{ test.charAt(0) }}</span>
             </div>
             <img [src]="task.urgency ? getUrgencySelected(task.urgency) : ''" />
           </div>
@@ -62,6 +61,7 @@
           *ngFor="let task of taskService.inprogress; let i = index"
           cdkDrag
           [cdkDragData]="task"
+          (click)="openTask(task)"
         >
           <span class="board-task-title">{{ task.category }}</span>
           <div class="board-task-text">
@@ -70,9 +70,7 @@
           </div>
           <div class="board-task-info">
             <div class="board-task-acronym">
-              <span>SM</span>
-              <span>MV</span>
-              <span>EF</span>
+              <span *ngFor="let test of task.assignedTo">{{ test.charAt(0) }}</span>
             </div>
             <img [src]="task.urgency ? getUrgencySelected(task.urgency) : ''" />
           </div>
@@ -97,6 +95,7 @@
           *ngFor="let task of taskService.awaitfeedback; let i = index"
           cdkDrag
           [cdkDragData]="task"
+          (click)="openTask(task)"
         >
           <span class="board-task-title">{{ task.category }}</span>
           <div class="board-task-text">
@@ -105,9 +104,7 @@
           </div>
           <div class="board-task-info">
             <div class="board-task-acronym">
-              <span>SM</span>
-              <span>MV</span>
-              <span>EF</span>
+              <span *ngFor="let test of task.assignedTo">{{ test.charAt(0) }}</span>
             </div>
             <img [src]="task.urgency ? getUrgencySelected(task.urgency) : ''" />
           </div>
@@ -132,6 +129,7 @@
           *ngFor="let task of taskService.done; let i = index"
           cdkDrag
           [cdkDragData]="task"
+          (click)="openTask(task)"
         >
           <span class="board-task-title">{{ task.category }}</span>
           <div class="board-task-text">
@@ -140,9 +138,7 @@
           </div>
           <div class="board-task-info">
             <div class="board-task-acronym">
-              <span>SM</span>
-              <span>MV</span>
-              <span>EF</span>
+              <span *ngFor="let test of task.assignedTo">{{ test.charAt(0) }}</span>
             </div>
             <img [src]="task.urgency ? getUrgencySelected(task.urgency) : ''" />
           </div>
@@ -151,3 +147,5 @@
     </div>
   </section>
 </main>
+
+

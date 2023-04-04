@@ -7,6 +7,7 @@ import { SummaryComponent } from './summary/summary.component';
 import { BoardComponent } from './board/board.component';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { EditContactComponent } from './edit-contact/edit-contact.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -17,7 +18,10 @@ const routes: Routes = [
       {path: 'summary', component: SummaryComponent},
       {path: 'board', component: BoardComponent},
       {path: 'add-task', component: AddTaskComponent},
-      {path: 'contacts', component: ContactsComponent},
+      {path: 'contacts', component: ContactsComponent,
+    children: [
+      { path: 'editcontact/:name', component: EditContactComponent}
+    ]},
     ]},
 
 ]

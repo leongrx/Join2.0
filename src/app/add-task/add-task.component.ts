@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { NgForm } from '@angular/forms';
 import { Task } from '../../models/task';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-add-task',
@@ -18,13 +20,16 @@ export class AddTaskComponent implements OnInit {
   tasks: Task[] = [];
   task: Task = new Task();
   assignedToString: string = '';
+  @ViewChild('myForm') myForm: NgForm | undefined;
 
   constructor(
     private afirestore: AngularFirestore,
-    private afAuth: AngularFireAuth
+    private afAuth: AngularFireAuth,
+    public userService: UsersService
   ) {}
 
   ngOnInit() {
+    this.userService.getUserData();
     this.afAuth.authState.subscribe((user) => {
       this.userId = user?.uid;
     });
@@ -34,7 +39,7 @@ export class AddTaskComponent implements OnInit {
     this.task.assignedTo = this.assignedToString;
   }
 
-  onSubmit() {
+  onSubmit(form: NgForm) {
     const taskData = this.convertTaskToData(this.task);
     this.afirestore
       .collection('users')
@@ -45,10 +50,10 @@ export class AddTaskComponent implements OnInit {
         ref.id;
         this.updateTaskWithId(ref.id);
       });
-    this.submitNewTask();
+    this.submitNewTask(form);
   }
 
-  submitNewTask() {
+  submitNewTask(form: NgForm) {
     this.task = new Task(
       this.task.id!,
       this.task.title!,
@@ -60,6 +65,7 @@ export class AddTaskComponent implements OnInit {
       this.task.urgency!
     );
     this.assignedToString = '';
+    form.reset();
   }
 
   updateTaskWithId(id: string): Promise<any> {
@@ -74,7 +80,7 @@ export class AddTaskComponent implements OnInit {
     return {
       title: task.title ?? '',
       assignedTo: task.assignedTo ?? '',
-      date: task.date ?? '',
+      date: task.date ? new Date(task.date).toDateString() : '',
       category: task.category ?? '',
       urgency: task.urgency ?? '',
       description: task.description ?? '',

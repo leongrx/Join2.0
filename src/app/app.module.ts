@@ -41,6 +41,9 @@ import { OrderModule } from 'ngx-order-pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { EditContactComponent } from './edit-contact/edit-contact.component';
+import { TaskDialogComponent } from './task-dialog/task-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -52,8 +55,11 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     BoardComponent,
     AddTaskComponent,
     ContactsComponent,
+    EditContactComponent,
+    TaskDialogComponent,
   ],
   imports: [
+    MatDialogModule,
     BrowserModule,
     AppRoutingModule,
     MatFormFieldModule,
