@@ -1,0 +1,97 @@
+<main>
+  <img
+    (click)="onClose()"
+    class="edit-task-close"
+    src="./assets/img/Board-overview-close.svg"
+  />
+  <form #myForm="ngForm" class="add-task-form">
+    <mat-form-field appearance="fill">
+      <input
+        class="edit-task-input"
+        matInput
+        name="title"
+        required
+        [(ngModel)]="task.title"
+      />
+    </mat-form-field>
+    <span class="edit-task-topic">Description</span>
+    <mat-form-field class="edit-task-descriptions">
+      <textarea
+        matInput
+        placeholder="Description"
+        [(ngModel)]="task.description"
+        name="description"
+      ></textarea>
+    </mat-form-field>
+    <span class="edit-task-topic date-gap">Due date</span>
+    <mat-form-field>
+      <input
+        class="edit-task-select"
+        matInput
+        [matDatepicker]="picker"
+        placeholder="dd/mm/yyyy"
+        name="date"
+        [(ngModel)]="task.date"
+        required
+      />
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-button-toggle-group
+      class="edit-task-urgency"
+      name="urgency"
+      [(ngModel)]="task.urgency"
+      required
+    >
+      <mat-button-toggle
+        (click)="clicked('urgent')"
+        id="urgent"
+        (mouseover)="hover('urgent')"
+        (mouseleave)="hoverEnd('urgent')"
+        class="edit-task-urgency-button"
+        value="urgent"
+        >Urgent<img id="urgentid" src="./assets/img/Urgent.svg"
+      /></mat-button-toggle>
+      <mat-button-toggle
+        (click)="clicked('medium')"
+        (mouseover)="hover('medium')"
+        (mouseleave)="hoverEnd('medium')"
+        id="medium"
+        class="edit-task-urgency-button"
+        value="medium"
+        >Medium<img id="mediumid" src="./assets/img/Medium.svg"
+      /></mat-button-toggle>
+      <mat-button-toggle
+        (click)="clicked('low')"
+        (mouseover)="hover('low')"
+        (mouseleave)="hoverEnd('low')"
+        id="low"
+        class="edit-task-urgency-button"
+        value="low"
+        >Low<img id="lowid" src="./assets/img/Low.svg"
+      /></mat-button-toggle>
+    </mat-button-toggle-group>
+    <span class="edit-task-topic">Assign to</span>
+    <mat-form-field>
+      <mat-select
+        class="edit-task-select"
+        placeholder="Select contacts to assign"
+        name="assignedTo"
+        required
+        multiple
+      >
+        <mat-option
+          *ngFor="let user of userService.userList; let i = index"
+          [value]="user.firstName + ' ' + user.lastName"
+          >{{ user.firstName }} {{ user.lastName }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+    <button class="edit-task-action-button" type="submit">
+      Ok<img src="./assets/img/Edit-task-check.svg" />
+    </button>
+  </form>
+</main>

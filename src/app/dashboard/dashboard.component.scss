@@ -17,6 +17,10 @@ $focus-sidenav: #D2E3FF;
     }
 }
 
+.active {
+    background-color: $focus-sidenav !important;
+  }
+
 
 .header-info {
     display: flex;

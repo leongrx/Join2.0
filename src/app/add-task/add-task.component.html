@@ -11,7 +11,7 @@
       />
     </mat-form-field>
     <span class="add-task-topic">Assign to</span>
-    <mat-form-field >
+    <mat-form-field>
       <mat-select
         class="add-task-select"
         placeholder="Select contacts to assign"
@@ -20,7 +20,11 @@
         required
         multiple
       >
-        <mat-option *ngFor="let assignTo of userService.userList; let i = index"value="{{ assignTo.firstName }} {{ assignTo.lastName }}">{{ assignTo.firstName }} {{ assignTo.lastName }}</mat-option>
+        <mat-option
+          *ngFor="let assignTo of userService.userList; let i = index"
+          value="{{ assignTo.firstName }} {{ assignTo.lastName }}"
+          >{{ assignTo.firstName }} {{ assignTo.lastName }}</mat-option
+        >
       </mat-select>
     </mat-form-field>
     <span class="add-task-topic">Due date</span>
@@ -99,7 +103,7 @@
       ></textarea>
     </mat-form-field>
     <div class="add-task-action">
-      <button class="add-task-action-button">
+      <button class="add-task-action-button" (click)="resetForm(myForm)">
         Clear <img src="./assets/img/Clear.svg" />
       </button>
       <button class="add-task-action-button" type="submit">

@@ -39,8 +39,9 @@ export class UsersService implements OnInit{
   ngOnInit() {
     this.getUserData();
   }
-
+  
   async getUserData() {
+    this.userList = [];
     try {
       const docsSnap = await getDocs(this.colRef);
       docsSnap.forEach((doc) => {

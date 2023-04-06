@@ -5,6 +5,10 @@ $lightgrey: #d2e3ff;
 $darkblue: #0038ff;
 $orange: #FF7A00;
 $grey: #A8A8A8;
+$design: #FF7A00;
+$sales: #FC71FF;
+$backoffice: #1FD7C1;
+$marketing: #0038FF;
 
 ::-webkit-scrollbar {
   width: 4px;
@@ -17,6 +21,38 @@ $grey: #A8A8A8;
 
 ::-webkit-scrollbar-thumb:hover {
   background: $darkblue;
+}
+
+.design {
+  background-color: $design;
+  color: $white;
+  border-radius: 8px;
+  padding: 4px 25px;
+  width: fit-content;
+}
+
+.sales {
+  background-color: $sales;
+  color: $white;
+  border-radius: 8px;
+  padding: 4px 25px;
+  width: fit-content;
+}
+
+.backoffice {
+  background-color: $backoffice;
+  color: $white;
+  border-radius: 8px;
+  padding: 4px 25px;
+  width: fit-content;
+}
+
+.marketing {
+  background-color: $marketing;
+  color: $white;
+  border-radius: 8px;
+  padding: 4px 25px;
+  width: fit-content;
 }
 
 main {

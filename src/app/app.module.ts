@@ -44,6 +44,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { EditContactComponent } from './edit-contact/edit-contact.component';
 import { TaskDialogComponent } from './task-dialog/task-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { EditTaskComponent } from './edit-task/edit-task.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     ContactsComponent,
     EditContactComponent,
     TaskDialogComponent,
+    EditTaskComponent,
   ],
   imports: [
     MatDialogModule,

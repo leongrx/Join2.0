@@ -28,14 +28,25 @@
           [cdkDragData]="task"
           (click)="openTask(task)"
         >
-          <span class="board-task-title">{{ task.category }}</span>
+          <span
+            class="board-task-title"
+            [ngClass]="{
+              design: task.category === 'design',
+              sales: task.category === 'sales',
+              backoffice: task.category === 'backoffice',
+              marketing: task.category === 'marketing'
+            }"
+            >{{ task.category }}</span
+          >
           <div class="board-task-text">
             <span>{{ task.title }}</span>
             <span>{{ task.description }}</span>
           </div>
           <div class="board-task-info">
             <div class="board-task-acronym">
-              <span *ngFor="let test of task.assignedTo">{{ test.charAt(0) }}</span>
+              <span *ngFor="let test of task.assignedTo">{{
+                test.charAt(0)
+              }}</span>
             </div>
             <img [src]="task.urgency ? getUrgencySelected(task.urgency) : ''" />
           </div>
@@ -63,14 +74,25 @@
           [cdkDragData]="task"
           (click)="openTask(task)"
         >
-          <span class="board-task-title">{{ task.category }}</span>
+          <span
+            class="board-task-title"
+            [ngClass]="{
+              design: task.category === 'design',
+              sales: task.category === 'sales',
+              backoffice: task.category === 'backoffice',
+              marketing: task.category === 'marketing'
+            }"
+            >{{ task.category }}</span
+          >
           <div class="board-task-text">
             <span>{{ task.title }}</span>
             <span>{{ task.description }}</span>
           </div>
           <div class="board-task-info">
             <div class="board-task-acronym">
-              <span *ngFor="let test of task.assignedTo">{{ test.charAt(0) }}</span>
+              <span *ngFor="let test of task.assignedTo">{{
+                test.charAt(0)
+              }}</span>
             </div>
             <img [src]="task.urgency ? getUrgencySelected(task.urgency) : ''" />
           </div>
@@ -97,14 +119,25 @@
           [cdkDragData]="task"
           (click)="openTask(task)"
         >
-          <span class="board-task-title">{{ task.category }}</span>
+          <span
+            class="board-task-title"
+            [ngClass]="{
+              design: task.category === 'design',
+              sales: task.category === 'sales',
+              backoffice: task.category === 'backoffice',
+              marketing: task.category === 'marketing'
+            }"
+            >{{ task.category }}</span
+          >
           <div class="board-task-text">
             <span>{{ task.title }}</span>
             <span>{{ task.description }}</span>
           </div>
           <div class="board-task-info">
             <div class="board-task-acronym">
-              <span *ngFor="let test of task.assignedTo">{{ test.charAt(0) }}</span>
+              <span *ngFor="let test of task.assignedTo">{{
+                test.charAt(0)
+              }}</span>
             </div>
             <img [src]="task.urgency ? getUrgencySelected(task.urgency) : ''" />
           </div>
@@ -131,14 +164,25 @@
           [cdkDragData]="task"
           (click)="openTask(task)"
         >
-          <span class="board-task-title">{{ task.category }}</span>
+          <span
+            class="board-task-title"
+            [ngClass]="{
+              design: task.category === 'design',
+              sales: task.category === 'sales',
+              backoffice: task.category === 'backoffice',
+              marketing: task.category === 'marketing'
+            }"
+            >{{ task.category }}</span
+          >
           <div class="board-task-text">
             <span>{{ task.title }}</span>
             <span>{{ task.description }}</span>
           </div>
           <div class="board-task-info">
             <div class="board-task-acronym">
-              <span *ngFor="let test of task.assignedTo">{{ test.charAt(0) }}</span>
+              <span *ngFor="let test of task.assignedTo">{{
+                test.charAt(0)
+              }}</span>
             </div>
             <img [src]="task.urgency ? getUrgencySelected(task.urgency) : ''" />
           </div>
@@ -147,5 +191,3 @@
     </div>
   </section>
 </main>
-
-

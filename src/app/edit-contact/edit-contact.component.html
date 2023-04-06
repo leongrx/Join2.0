@@ -1,6 +1,6 @@
 <main>
     <div class="edit-contact-header">
-        <img src="./assets/img/leon.png">
+        <span class="edit-contact-acronym">{{ userService.clickeduser.start}}{{ userService.clickeduser.start}}</span>
         <div class="edit-contact-top">
             <span>{{ userService.clickeduser.firstName }} {{ userService.clickeduser.lastName }}</span>
             <button><img src="./assets/img/Edit-contact-add-task.svg">Add Task</button>
@@ -15,7 +15,8 @@
             </div>
             <div class="edit-contact-mobile">
                 <span>Mobile</span>
-                <span>+49 1234 567 89</span>
+                <span *ngIf="userService.clickeduser.phone">{{ userService.clickeduser.phone }}</span>
+                <span *ngIf="!userService.clickeduser.phone"><i>No number deposited</i></span>
             </div>
         </div>
         <button><img src="./assets/img/Edit-contact.svg">Edit Contact</button>

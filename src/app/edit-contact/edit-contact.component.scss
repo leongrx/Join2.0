@@ -8,7 +8,7 @@ $grey: #a8a8a8;
 $lightblue: #005dff;
 
 main {
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   display: flex;
   flex-direction: column;
   gap: 22px;
@@ -50,16 +50,18 @@ main {
       height: 15px;
     }
   }
-
-  img {
-    width: 120px;
-    height: 120px;
-    border-radius: 100%;
-    border: 3px solid #ffffff;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
-  }
 }
-
+.edit-contact-acronym {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 120px;
+  height: 120px;
+  border-radius: 100%;
+  border: 3px solid #ffffff;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
+  font-size: 47px;
+}
 .edit-contact-information-container {
   display: flex;
   gap: 60px;

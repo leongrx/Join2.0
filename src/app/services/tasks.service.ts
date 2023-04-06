@@ -26,13 +26,6 @@ export class TasksService {
   taskdone: number = 0;
   deadline!: string;
 
-  colors: any = {
-    design: '#FF7A00',
-    sales: '#FC71FF',
-    backoffice: '#1FD7C1',
-    marketing: '#0038FF',
-  };
-
   boards: any = [
     {
       todos: 'todos',
@@ -206,28 +199,5 @@ export class TasksService {
     } else {
       this.done.push(task);
     }
-    setTimeout(() => {
-      this.setCategoryBackground();
-    }, 1);
-  }
-
-  setCategoryBackground() {
-    const elements: NodeListOf<HTMLElement> =
-      document.querySelectorAll('.board-task-title');
-    for (let i = 0; i < elements.length; i++) {
-      const textContent = elements[i].textContent;
-      if (textContent !== null) {
-        const color = this.colors[textContent];
-        elements[i].style.backgroundColor = `${color}`;
-        this.setTaskSytleGenerel(elements[i]);
-      }
-    }
-  }
-
-  setTaskSytleGenerel(task: HTMLElement) {
-    task.style.color = 'white';
-    task.style.borderRadius = '8px';
-    task.style.padding = '4px 25px';
-    task.style.width = 'fit-content';
   }
 }

@@ -10,22 +10,27 @@ $border-orange: #ffa800;
 $border-green: #7ae229;
 $add-task-topic: #42526e;
 
+::ng-deep .mat-drawer-container {
+  background-color: $white !important;
+}
+
 main {
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: normal;
   background-color: $white;
-  padding: 30px 88px;
+  padding: 30px 5px;
+  margin-left: 80px;
   font-family: 'Open Sans';
+  overflow-y: auto;
+  width: 450px;
+  height: 75vh;
 }
 
 .add-task-form {
   display: flex;
   flex-direction: column;
-  width: 420px;
-  height: 75vh;
-  overflow-y: auto;
-  padding: 10px;
 }
 
 ::ng-deep .mat-mdc-select-placeholder {
@@ -65,14 +70,22 @@ main {
   overflow: unset !important;
 }
 
-::ng-deep .mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled):hover .mat-button-toggle-focus-overlay {
-  background-color: transparent !important;
+::ng-deep .mat-button-toggle-group-appearance-standard .mat-button-toggle+.mat-button-toggle {
+  border-left: unset !important;
 }
+// ::ng-deep .mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled):hover .mat-button-toggle-focus-overlay {
+//   background-color: transparent !important;
+// }
 
 .add-task-urgency {
   display: flex;
   margin-bottom: 35px;
   gap: 10px;
+}
+
+::ng-deep .mat-button-toggle-focus-overlay,
+.mat-button-focus-overlay {
+  background-color: $white !important;
 }
 
 .add-task-urgency-button {
@@ -91,7 +104,6 @@ main {
 
     &:hover {
       cursor: pointer;
-      background-color: $white !important;
     }
 
     img {
@@ -105,7 +117,6 @@ main {
   filter: invert(0%) sepia(100%) saturate(0%) hue-rotate(194deg)
     brightness(300%) contrast(101%);
 }
-
 
 .add-task-descriptions {
   border: 1px solid #d1d1d1 !important;

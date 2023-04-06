@@ -35,6 +35,15 @@ export class AddTaskComponent implements OnInit {
     });
   }
 
+  selectedValue: string = '';
+
+  onButtonClick(value: string) {
+    if (this.selectedValue !== value) {
+      this.selectedValue = value;
+      console.log(this.selectedValue);
+    }
+  }
+
   onAssignedToChange() {
     this.task.assignedTo = this.assignedToString;
   }
@@ -65,7 +74,13 @@ export class AddTaskComponent implements OnInit {
       this.task.urgency!
     );
     this.assignedToString = '';
+    this.resetForm(form);
+  }
+
+  resetForm(form: NgForm) {
     form.reset();
+    this.resetStyle();
+    this.resetStyleBg()
   }
 
   updateTaskWithId(id: string): Promise<any> {
@@ -122,12 +137,33 @@ export class AddTaskComponent implements OnInit {
       test[i].style.color = 'black';
       test[i].style.borderBottom = 'white';
       test[i].style.backgroundColor = 'white';
-      test[i].classList.remove('test');
     }
   }
 
   styleImg(urgency: string) {
-    let img = document.getElementById(urgency + 'id') as HTMLDivElement;
-    img.classList.add('test');
+    this.resetStyleBg();
+    switch (urgency) {
+      case 'urgent':
+        let urgentStyle = document.getElementById(urgency + 'id') as HTMLDivElement;
+        urgentStyle.classList.add('test');
+        break;
+        case 'medium':
+        let mediumStyle = document.getElementById(urgency + 'id') as HTMLDivElement;
+        mediumStyle.classList.add('test');
+        break;
+        case 'low':
+        let lowStyle = document.getElementById(urgency + 'id') as HTMLDivElement;
+        lowStyle.classList.add('test');
+        break;
+    }
+  }
+
+  resetStyleBg() {
+    let urgent = document.getElementById('urgentid') as HTMLDivElement;
+    let medium = document.getElementById('mediumid') as HTMLDivElement;
+    let low = document.getElementById('lowid') as HTMLDivElement;
+    urgent.classList.remove('test')
+    medium.classList.remove('test')
+    low.classList.remove('test')
   }
 }

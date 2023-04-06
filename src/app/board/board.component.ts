@@ -33,8 +33,8 @@ export class BoardComponent implements OnInit {
   }
 
   openTask(task: any) {
+    console.log(task)
     this.dialog.open(TaskDialogComponent, {
-      width: '100%',
       data: { task }
     });
   }
